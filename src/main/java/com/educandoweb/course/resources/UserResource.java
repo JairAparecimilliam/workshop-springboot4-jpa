@@ -3,7 +3,6 @@ package com.educandoweb.course.resources;
 import java.net.URI;
 import java.util.List;
 
-import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -51,12 +50,11 @@ public class UserResource {
 		service.delete(id);
 		return ResponseEntity.noContent().build();
 	}
-	
-	//implementação basica de atualização do usuario
+
+	// implementação basica de atualização do usuario
 	@PutMapping(value = "/{id}")
-	public ResponseEntity<User>update (@PathVariable  Long id, @RequestBody User obj){
-		obj=service.update(id,obj);
+	public ResponseEntity<User> update(@PathVariable Long id, @RequestBody User obj) {
+		obj = service.update(id, obj);
 		return ResponseEntity.ok().body(obj);
 	}
 }
-
